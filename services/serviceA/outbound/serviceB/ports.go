@@ -9,5 +9,5 @@ type CommandCallers interface {
 	EntityAHasMoved(ctx context.Context, cmd serviceBCmd.EntityAHasMovedCommand) error
 }
 
-type QueriyCallers interface {
+type QueryCallers interface {
 }

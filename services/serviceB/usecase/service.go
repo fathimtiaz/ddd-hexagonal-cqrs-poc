@@ -1,8 +1,8 @@
 package service
 
 import (
-	"ddd-hexagonal-cqrs-poc/services/serviceA/outbound/repo"
 	"ddd-hexagonal-cqrs-poc/services/serviceB/domain"
+	"ddd-hexagonal-cqrs-poc/services/serviceB/outbound/repo"
 )
 
 func NewUseCases(

@@ -6,5 +6,5 @@ import (
 )
 
 type Handler interface {
-	EntityAHasMoved(context.Context, command.EntityAHasMovedCommand)
+	EntityAHasMoved(context.Context, command.EntityAHasMovedCommand) error
 }

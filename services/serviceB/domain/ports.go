@@ -10,5 +10,5 @@ type UseCases struct {
 }
 
 type UseCaser interface {
-	Execute(context.Context, input.Commander)
+	Execute(context.Context, input.Commander) error
 }

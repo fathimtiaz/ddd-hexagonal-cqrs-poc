@@ -1,8 +1,8 @@
 package query
 
 import (
-	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/inbound/query/intraservice"
-	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/repo"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/inbound/query/intraservice"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/outbound/repo"
 	"errors"
 )
 

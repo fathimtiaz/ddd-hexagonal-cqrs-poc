@@ -6,6 +6,6 @@ import (
 )
 
 type Handler interface {
-	EntityACreate(context.Context, command.EntityACreateCommand)
-	EntityAMove(context.Context, command.EntityAMoveCommand)
+	EntityACreate(context.Context, command.EntityACreateCommand) error
+	EntityAMove(context.Context, command.EntityAMoveCommand) error
 }

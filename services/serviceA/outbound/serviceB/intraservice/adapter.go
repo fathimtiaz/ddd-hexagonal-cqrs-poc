@@ -2,20 +2,21 @@ package intraservice
 
 import (
 	"context"
-	"ddd-hexagonal-cqrs-poc/services/common/registry"
-	serviceBCommand "ddd-hexagonal-cqrs-poc/services/serviceB/inbound/command"
+
+	serviceBIntraservice "ddd-hexagonal-cqrs-poc/services/serviceB/inbound/command/invokers/intraservice"
 	serviceBCmd "ddd-hexagonal-cqrs-poc/services/serviceB/io/input/command"
 )
 
 type adapter struct {
-	handler serviceBCommand.Handler
+	invoker *serviceBIntraservice.Invoker
 }
 
 func NewAdapter() *adapter {
-	return &adapter{registry.GetCommandHandlerB()}
+	return &adapter{
+		invoker: serviceBIntraservice.NewInvoker(),
+	}
 }
 
 func (a *adapter) EntityAHasMoved(ctx context.Context, cmd serviceBCmd.EntityAHasMovedCommand) error {
-	a.handler.EntityAHasMoved(ctx, cmd)
-	return nil
+	return a.invoker.EntityAHasMoved(ctx, cmd)
 }
