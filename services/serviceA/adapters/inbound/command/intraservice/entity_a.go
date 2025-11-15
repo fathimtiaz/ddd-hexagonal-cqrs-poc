@@ -1,8 +1,8 @@
 package intraservice
 
 import (
-	"poc/services/common/io/input"
-	"poc/services/serviceA/io/input/command"
+	"ddd-hexagonal-cqrs-poc/services/common/io/input"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/io/input/command"
 )
 
 func (a adapter) EntityACreate(c input.Context) {

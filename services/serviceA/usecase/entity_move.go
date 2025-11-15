@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"poc/services/common/io/input"
-	"poc/services/serviceA/adapters/outbound/repo"
-	serviceb "poc/services/serviceA/adapters/outbound/serviceB"
-	"poc/services/serviceA/io/input/command"
-	serviceBCmd "poc/services/serviceB/io/input/command"
+	"ddd-hexagonal-cqrs-poc/services/common/io/input"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/repo"
+	serviceb "ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/serviceB"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/io/input/command"
+	serviceBCmd "ddd-hexagonal-cqrs-poc/services/serviceB/io/input/command"
 )
 
 type EntityAMoveUseCase struct {

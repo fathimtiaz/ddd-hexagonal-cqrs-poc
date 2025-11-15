@@ -1,9 +1,9 @@
 package query
 
 import (
+	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/inbound/query/intraservice"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/repo"
 	"errors"
-	"poc/services/serviceA/adapters/inbound/query/intraservice"
-	"poc/services/serviceA/adapters/outbound/repo"
 )
 
 func NewHandler(adapter string, reader repo.Reader) (Handler, error) {

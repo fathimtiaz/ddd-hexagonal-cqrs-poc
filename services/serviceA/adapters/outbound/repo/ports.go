@@ -2,8 +2,8 @@ package repo
 
 import (
 	"context"
-	"poc/services/serviceA/domain"
-	"poc/services/serviceA/io/input/query"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/domain"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/io/input/query"
 )
 
 type Reader interface {

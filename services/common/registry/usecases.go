@@ -1,7 +1,7 @@
 package registry
 
 import (
-	serviceBDomain "poc/services/serviceB/domain"
+	serviceBDomain "ddd-hexagonal-cqrs-poc/services/serviceB/domain"
 )
 
 var (

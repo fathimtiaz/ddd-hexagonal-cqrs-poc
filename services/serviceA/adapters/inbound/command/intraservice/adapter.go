@@ -1,7 +1,7 @@
 package intraservice
 
 import (
-	"poc/services/serviceA/domain"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/domain"
 )
 
 type adapter struct {

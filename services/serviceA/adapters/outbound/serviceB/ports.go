@@ -2,7 +2,7 @@ package serviceb
 
 import (
 	"context"
-	serviceBCmd "poc/services/serviceB/io/input/command"
+	serviceBCmd "ddd-hexagonal-cqrs-poc/services/serviceB/io/input/command"
 )
 
 type CommandCallers interface {

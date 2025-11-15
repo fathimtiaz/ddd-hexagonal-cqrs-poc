@@ -1,10 +1,10 @@
 package intraservice
 
 import (
-	"poc/services/common/io/input"
-	"poc/services/common/registry"
-	"poc/services/serviceB/domain"
-	"poc/services/serviceB/io/input/command"
+	"ddd-hexagonal-cqrs-poc/services/common/io/input"
+	"ddd-hexagonal-cqrs-poc/services/common/registry"
+	"ddd-hexagonal-cqrs-poc/services/serviceB/domain"
+	"ddd-hexagonal-cqrs-poc/services/serviceB/io/input/command"
 )
 
 type adapter struct {

@@ -2,7 +2,7 @@ package domain
 
 import (
 	"context"
-	"poc/services/common/io/input"
+	"ddd-hexagonal-cqrs-poc/services/common/io/input"
 )
 
 type UseCases struct {

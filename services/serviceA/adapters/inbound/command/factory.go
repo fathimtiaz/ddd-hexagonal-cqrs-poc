@@ -1,8 +1,8 @@
 package command
 
 import (
-	"poc/services/serviceA/adapters/inbound/command/intraservice"
-	"poc/services/serviceA/domain"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/inbound/command/intraservice"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/domain"
 )
 
 func NewCommandHandler(adapter string, useCases domain.UseCases) Handler {

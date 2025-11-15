@@ -1,8 +1,8 @@
 package registry
 
 import (
-	serviceACommand "poc/services/serviceA/adapters/inbound/command"
-	serviceBCommand "poc/services/serviceB/adapters/inbound/command"
+	serviceACommand "ddd-hexagonal-cqrs-poc/services/serviceA/adapters/inbound/command"
+	serviceBCommand "ddd-hexagonal-cqrs-poc/services/serviceB/adapters/inbound/command"
 )
 
 var (

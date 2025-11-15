@@ -1,9 +1,9 @@
 package servicea
 
 import (
-	serviceACommand "poc/services/serviceA/adapters/inbound/command"
-	"poc/services/serviceA/adapters/outbound/repo"
-	serviceAUseCase "poc/services/serviceA/usecase"
+	serviceACommand "ddd-hexagonal-cqrs-poc/services/serviceA/adapters/inbound/command"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/repo"
+	serviceAUseCase "ddd-hexagonal-cqrs-poc/services/serviceA/usecase"
 )
 
 func Register(writer repo.Writer, reader repo.Reader) {

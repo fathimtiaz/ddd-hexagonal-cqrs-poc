@@ -1,4 +1,4 @@
-module poc
+module ddd-hexagonal-cqrs-poc
 
 go 1.24.1
 
