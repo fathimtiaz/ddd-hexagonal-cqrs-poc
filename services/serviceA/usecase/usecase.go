@@ -1,9 +1,9 @@
 package usecase
 
 import (
-	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/repo"
-	serviceb "ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/serviceB"
 	"ddd-hexagonal-cqrs-poc/services/serviceA/domain"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/outbound/repo"
+	serviceb "ddd-hexagonal-cqrs-poc/services/serviceA/outbound/serviceB"
 )
 
 func NewUseCases(

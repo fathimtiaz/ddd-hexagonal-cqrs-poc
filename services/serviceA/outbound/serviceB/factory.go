@@ -1,6 +1,6 @@
 package serviceb
 
-import "ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/serviceB/intraservice"
+import "ddd-hexagonal-cqrs-poc/services/serviceA/outbound/serviceB/intraservice"
 
 func NewServiceBCommands(adapter string) CommandCallers {
 	switch adapter {

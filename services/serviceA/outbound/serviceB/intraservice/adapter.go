@@ -2,9 +2,8 @@ package intraservice
 
 import (
 	"context"
-	"ddd-hexagonal-cqrs-poc/services/common/io/input"
 	"ddd-hexagonal-cqrs-poc/services/common/registry"
-	serviceBCommand "ddd-hexagonal-cqrs-poc/services/serviceB/adapters/inbound/command"
+	serviceBCommand "ddd-hexagonal-cqrs-poc/services/serviceB/inbound/command"
 	serviceBCmd "ddd-hexagonal-cqrs-poc/services/serviceB/io/input/command"
 )
 
@@ -17,6 +16,6 @@ func NewAdapter() *adapter {
 }
 
 func (a *adapter) EntityAHasMoved(ctx context.Context, cmd serviceBCmd.EntityAHasMovedCommand) error {
-	a.handler.EntityAHasMoved(input.WithCommand(ctx, cmd))
+	a.handler.EntityAHasMoved(ctx, cmd)
 	return nil
 }

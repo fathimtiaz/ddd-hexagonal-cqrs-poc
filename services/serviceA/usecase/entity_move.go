@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	"ddd-hexagonal-cqrs-poc/services/common/io/input"
-	"ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/repo"
-	serviceb "ddd-hexagonal-cqrs-poc/services/serviceA/adapters/outbound/serviceB"
 	"ddd-hexagonal-cqrs-poc/services/serviceA/io/input/command"
+	"ddd-hexagonal-cqrs-poc/services/serviceA/outbound/repo"
+	serviceb "ddd-hexagonal-cqrs-poc/services/serviceA/outbound/serviceB"
 	serviceBCmd "ddd-hexagonal-cqrs-poc/services/serviceB/io/input/command"
 )
 
