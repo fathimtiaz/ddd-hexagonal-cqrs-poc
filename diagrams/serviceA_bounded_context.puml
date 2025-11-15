@@ -1,0 +1,102 @@
+@startuml
+' ServiceA Bounded Context - class diagram
+' Render with PlantUML
+
+skinparam classAttributeIconSize 0
+
+package "Domain" {
+  class EntityA <<Entity>> {
+    +ID: int64
+    +UUID: uuid.UUID
+    +EntityBID: int64
+    +Name: string
+    +Position: string
+    +Frozen: bool
+    +CanMove(): bool
+    +Move(direction: string)
+  }
+
+  class EntityB <<Entity>> {
+    +ID: int64
+    +UUID: uuid.UUID
+    +Name: string
+  }
+}
+
+package "Ports (Domain)" {
+  interface RepoReader <<Port>> {
+    +EntityA(ctx, query.EntityAQuery): serviceA.domain.EntityA
+  }
+
+  interface RepoWriter <<Port>> {
+    +EntityASave(ctx, serviceA.domain.EntityA)
+  }
+
+  interface ServiceBCommander <<Port>> {
+    +EntityAHasMoved(ctx, serviceB.io.input.command.EntityAHasMovedCommand): error
+  }
+
+  interface Publisher <<Port>> {
+    +PublishEntityAMoved(ctx, evt): error
+  }
+}
+
+package "Application / Use-cases" {
+  class EntityAMoveUseCase <<UseCase>> {
+    -reader: RepoReader
+    -writer: RepoWriter
+    -svcB: ServiceBCommander
+    +Execute(ctx, serviceA.io.command.EntityAMoveCommand): error
+  }
+}
+
+package "Adapters - Inbound" {
+  class InboundHandler <<Adapter>> {
+    -entityAMoveUseCase: EntityAMoveUseCase
+    +EntityAMove(c: input.Context)
+  }
+}
+
+package "Adapters - Outbound" {
+  class ServiceBIntraAdapter <<Adapter>> {
+    +EntityAHasMoved(ctx, cmd): error
+  }
+
+  class RepoPostgresAdapter <<Adapter>> {
+    +EntityA(ctx, query): EntityA
+    +EntityASave(ctx, EntityA)
+  }
+}
+
+package "IO / DTOs" {
+  class EntityAMoveCommand
+  class EntityAQuery
+  class EntityAOutput
+}
+
+' relationships
+EntityAMoveUseCase ..> RepoReader : uses
+EntityAMoveUseCase ..> RepoWriter : uses
+EntityAMoveUseCase ..> ServiceBCommander : calls
+InboundHandler --> EntityAMoveUseCase : invokes
+RepoPostgresAdapter ..|> RepoReader
+RepoPostgresAdapter ..|> RepoWriter
+ServiceBIntraAdapter ..|> ServiceBCommander
+EntityA --> EntityB : references
+
+' Optional event flow
+EntityAMoveUseCase ..> Publisher : may publish
+Publisher ..> ServiceBIntraAdapter : asynchronous consumer (alternative)
+
+' Add notes for mapping to files
+note top of EntityAMoveUseCase
+  Implementation: services/serviceA/usecase/entity_move.go
+end note
+note top of InboundHandler
+  Implementation (adapter): services/serviceA/adapters/inbound/command/intraservice
+end note
+note top of RepoPostgresAdapter
+  Suggested path: services/serviceA/adapters/outbound/repo/postgres
+end note
+
+@enduml
